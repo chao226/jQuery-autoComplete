@@ -43,6 +43,8 @@
                     width: that.outerWidth()
                 });
                 if (!resize) {
+			if (that.is(':focus')) {
+				
                     that.sc.show();
                     if (!that.sc.maxHeight) that.sc.maxHeight = parseInt(that.sc.css('max-height'));
                     if (!that.sc.suggestionHeight) that.sc.suggestionHeight = $('.autocomplete-suggestion', that.sc).first().outerHeight();
@@ -55,6 +57,7 @@
                             else if (selTop < 0)
                                 that.sc.scrollTop(selTop + scrTop);
                         }
+		}
                 }
             }
             $(window).on('resize.autocomplete', that.updateSC);
